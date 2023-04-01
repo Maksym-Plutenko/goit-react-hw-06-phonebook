@@ -20,7 +20,7 @@ const Filter = ({ changeAction }) => {
         type="text"
         name="filter"
         value={name}
-        onChange={changeHandler}
+        onChange={changeHandler}    // change here
         className={css.input}
       />
     </div>
