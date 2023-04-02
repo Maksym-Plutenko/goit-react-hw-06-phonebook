@@ -11,7 +11,7 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   const changeHandler = event => {
-    console.log('changed!');
+    // console.log('changed!');
     const formValue = event.currentTarget.value;
     setName(formValue);
     // changeAction(formValue);
