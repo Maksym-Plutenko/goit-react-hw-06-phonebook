@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { getFilter } from '../redux/selectors';
+
 import { nanoid } from 'nanoid';
 
 import { ContactForm } from './ContactForm/ContactForm';
@@ -7,7 +10,8 @@ import { ContactList } from './ContactList/ContactList';
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
+  const filter = useSelector(getFilter);
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -61,7 +65,8 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm submitAction={addContact} />
       <h2>Contacts</h2>
-      <Filter changeAction={setFilter} />
+      {/* <Filter changeAction={setFilter} /> */}
+      <Filter />
       <ContactList
         contacts={formContactList(filter)}
         onDelete={deleteContact}

@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+// import PropTypes from 'prop-types';
+
+import {setFilterStatus} from '../../redux/filterSlice';
 
 import css from './Filter.module.css';
 
-const Filter = ({ changeAction }) => {
+const Filter = () => {
   const [name, setName] = useState('');
+  const dispatch = useDispatch();
 
   const changeHandler = event => {
+    console.log('changed!');
     const formValue = event.currentTarget.value;
     setName(formValue);
-    changeAction(formValue);
+    // changeAction(formValue);
+    dispatch(setFilterStatus(formValue));
   };
 
   return (
@@ -20,15 +26,15 @@ const Filter = ({ changeAction }) => {
         type="text"
         name="filter"
         value={name}
-        onChange={changeHandler}    // change here
+        onChange={changeHandler}
         className={css.input}
       />
     </div>
   );
 };
 
-Filter.propTypes = {
-  changeAction: PropTypes.func,
-};
+// Filter.propTypes = {
+//   changeAction: PropTypes.func,
+// };
 
 export { Filter };
