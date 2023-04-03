@@ -20,12 +20,6 @@ import { filterReduser } from './filterSlice';
 
 
 
-const store = configureStore({
-  reducer: {
-    contacts: contactsReduser,
-    filter: filterReduser,
-  },
-});
 
 
 // const store = configureStore({
@@ -57,6 +51,31 @@ const store = configureStore({
 // const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
 
 // const store = createStore(persistedReducer);
+
+
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+ 
+const persistedReducer = persistReducer(persistConfig, contactsReduser);
+
+
+
+const store = configureStore({
+  reducer: {
+    contacts: persistedReducer,
+    filter: filterReduser,
+  },
+});
+
+// const store = configureStore({
+//   reducer: {
+//     contacts: contactsReduser,
+//     filter: filterReduser,
+//   },
+// });
+
 
 const persistor = persistStore(store);
 
