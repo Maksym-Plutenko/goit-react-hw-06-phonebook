@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 // import { createStore } from 'redux';
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 // import { contactsReduser } from './contactsSlice';
 // import { filterReduser } from './filterSlice';
-import {rootReduser} from './rootSlice';
+import {rootReducer} from './rootSlice';
 
 
 
@@ -63,10 +63,20 @@ import {rootReduser} from './rootSlice';
 // let persistor = persistStore(store);
 // export { store, persistor };
 
+
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: ['filter'],
+}
+ 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
 const store = configureStore({
-  reducer: rootReduser,
+  reducer: persistedReducer,
 });
 
-// const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-export { store };
+export { store, persistor };

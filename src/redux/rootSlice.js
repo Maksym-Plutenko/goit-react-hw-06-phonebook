@@ -60,7 +60,7 @@ const rootSlice = createSlice({
   },
 });
 
-const rootReduser = rootSlice.reducer;
+const rootReducer = rootSlice.reducer;
 const { addContact, deleteContact, setFilterStatus } = rootSlice.actions;
 
-export { rootReduser, addContact, deleteContact, setFilterStatus };
+export { rootReducer, addContact, deleteContact, setFilterStatus };
