@@ -12,7 +12,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { rootReducer } from './rootSlice';
+import { rootReducer } from './rootReducer';
 
 const persistConfig = {
   key: 'root',

@@ -3,9 +3,7 @@ import { nanoid } from 'nanoid';
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: [
-    // { name: 'Whatafuck?', number: '88000555665', id: 'aerhpjerp' },
-  ],
+  initialState: [],
   reducers: {
     addContact: {
       reducer(state, action) {
@@ -13,7 +11,7 @@ const contactsSlice = createSlice({
       },
       prepare(name, number) {
         const id = nanoid();
-        // console.log('' + name + number + id);
+
         return {
           payload: {
             name,
