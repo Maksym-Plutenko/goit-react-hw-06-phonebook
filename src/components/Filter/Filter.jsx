@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import PropTypes from 'prop-types';
 
-import {setFilterStatus} from '../../redux/filterSlice';
+import {setFilterStatus} from '../../redux/rootSlice';
 
 import css from './Filter.module.css';
 

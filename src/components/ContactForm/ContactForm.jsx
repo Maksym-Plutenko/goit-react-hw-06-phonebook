@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {getContacts} from '../../redux/selectors';
-import {addContact} from '../../redux/contactsSlice';
+import {addContact} from '../../redux/rootSlice';
 
 // import PropTypes from 'prop-types';
 

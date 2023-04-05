@@ -1,73 +1,30 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { createStore } from 'redux';
+// import { createStore } from 'redux';
 import { combineReducers } from 'redux';
 
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { contactsReduser } from './contactsSlice';
-import { filterReduser } from './filterSlice';
+// import { contactsReduser } from './contactsSlice';
+// import { filterReduser } from './filterSlice';
+import {rootReduser} from './rootSlice';
+
+
+
 
 // const persistConfig = {
 //   key: 'root',
 //   storage,
-// };
-
-// const persistedcontactsReduser = persistReducer(persistConfig, contactsReduser);
-// const persistedfilterReduser = persistReducer(persistConfig, filterReduser);
-
-
-
-
-
-
+// }
+ 
+// const persistedReducer = persistReducer(persistConfig, contactsReduser);
 
 // const store = configureStore({
 //   reducer: {
-//     contacts: persistReducer(persistConfig, contactsReduser),
+//     contacts: persistedReducer,
 //     filter: filterReduser,
 //   },
 // });
-
-
-
-
-
-// const rootPersistConfig = {
-//   key: 'root',
-//   storage: storage,
-// };
-
-// const contactsPersistConfig = {
-//   key: 'contacts',
-//   storage: storage,
-// };
-
-// const rootReducer = combineReducers({
-//   contacts: persistReducer(contactsPersistConfig, contactsReduser),
-//   filter: filterReduser,
-// });
-
-// const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
-
-// const store = createStore(persistedReducer);
-
-
-const persistConfig = {
-  key: 'root',
-  storage,
-}
- 
-const persistedReducer = persistReducer(persistConfig, contactsReduser);
-
-
-
-const store = configureStore({
-  reducer: {
-    contacts: persistedReducer,
-    filter: filterReduser,
-  },
-});
 
 // const store = configureStore({
 //   reducer: {
@@ -77,6 +34,39 @@ const store = configureStore({
 // });
 
 
-const persistor = persistStore(store);
+// const persistor = persistStore(store);
 
-export { store, persistor };
+// export { store, persistor };
+
+
+
+// NEW ATTEMPT
+
+// const rootPersistConfig = {
+//   key: 'root',
+//   storage: storage,
+//   // blacklist: ['auth']
+// }
+ 
+// const authPersistConfig = {
+//   key: 'auth',
+//   storage: storage,
+//   // blacklist: ['somethingTemporary']
+// }
+ 
+// const rootReducer = combineReducers({
+//   auth: persistReducer(authPersistConfig, contactsReduser),
+//   other: filterReduser,
+// })
+
+// const store = createStore(rootReducer);
+// let persistor = persistStore(store);
+// export { store, persistor };
+
+const store = configureStore({
+  reducer: rootReduser,
+});
+
+// const persistor = persistStore(store);
+
+export { store };

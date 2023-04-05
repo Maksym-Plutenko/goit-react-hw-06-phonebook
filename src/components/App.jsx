@@ -9,8 +9,15 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 
 const App = () => {
+
+  // console.log(getFilter);
+  // console.log(getContacts);
+
+
   // const [contacts, setContacts] = useState([]);
   const contacts = useSelector(getContacts);
+  // console.log(contacts);
+
   // const [filter, setFilter] = useState('');
   const filter = useSelector(getFilter);
   const [mounted, setMounted] = useState(false);
