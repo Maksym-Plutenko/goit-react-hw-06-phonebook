@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import {deleteContact} from '../../../redux/rootSlice';
+import { deleteContact } from '../../../redux/rootSlice';
 
 import css from './Contact.module.css';
 
@@ -9,7 +9,6 @@ const Contact = ({ name, number, id }) => {
   const dispatch = useDispatch();
 
   const clickHandler = event => {
-    // onDelete(event.currentTarget.id);
     dispatch(deleteContact(event.currentTarget.id));
   };
 
@@ -34,7 +33,6 @@ Contact.propTypes = {
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  // onDelete: PropTypes.func.isRequired,
 };
 
 export { Contact };

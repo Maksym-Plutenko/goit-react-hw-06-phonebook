@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 const rootSlice = createSlice({
   name: 'root',
   initialState: {
-    contacts: [{ name: 'Whatafuck?', number: '88000555665', id: 'aerhpjerp' }],
+    contacts: [],
     filter: '',
   },
   reducers: {
@@ -29,9 +29,7 @@ const rootSlice = createSlice({
         const newContacts = state.contacts.filter(
           cont => cont.id !== contactId
         );
-        // return {
-        //   contacts: newContacts,
-        // };
+
         state.contacts = newContacts;
       },
       prepare(id) {
@@ -44,9 +42,6 @@ const rootSlice = createSlice({
     },
     setFilterStatus: {
       reducer(state, action) {
-        // return {
-        //   filter: action.payload.value,
-        // };
         state.filter = action.payload.value;
       },
       prepare(formValue) {

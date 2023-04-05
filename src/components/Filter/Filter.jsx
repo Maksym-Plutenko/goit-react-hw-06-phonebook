@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import PropTypes from 'prop-types';
 
-import {setFilterStatus} from '../../redux/rootSlice';
+import { setFilterStatus } from '../../redux/rootSlice';
 
 import css from './Filter.module.css';
 
@@ -11,10 +10,9 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   const changeHandler = event => {
-    // console.log('changed!');
     const formValue = event.currentTarget.value;
     setName(formValue);
-    // changeAction(formValue);
+
     dispatch(setFilterStatus(formValue));
   };
 
@@ -32,9 +30,5 @@ const Filter = () => {
     </div>
   );
 };
-
-// Filter.propTypes = {
-//   changeAction: PropTypes.func,
-// };
 
 export { Filter };
